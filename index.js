@@ -42,6 +42,7 @@ function getFinals(array) {
   })
   return finalFilter;
 }
+console.log(getFinals(fifaData))
 
 
 
@@ -118,13 +119,18 @@ Use the higher order function getAverageGoals to do the following:
  Example of invocation: getAverageGoals(getFinals(fifaData));
 */
 
-function getAverageGoals() {
-   /* code here */
+function getAverageGoals(callback) {
+let average = callback.reduce((total, score )=>{
+    return total + score['Home Team Goals'] + score['Away Team Goals']
+} ,0 );
+    return (average/ callback.length).toPrecision(3)
 }
 
 
 
+getAverageGoals(getFinals(fifaData))
 
+console.log(getAverageGoals(getFinals(fifaData)))
 /// 🥅 STRETCH 🥅 ///
 
 /* 💪💪💪💪💪 Stretch 1: 💪💪💪💪💪 
@@ -161,7 +167,7 @@ function badDefense(/* code here */) {
 }
 
 
-/* If you still have time, use the space below to work on any stretch goals of your chosing as listed in the README file. */
+/* If you still have time, use the space below to work on any stretch goals of your choosing as listed in the README file. */
 
 
 /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
